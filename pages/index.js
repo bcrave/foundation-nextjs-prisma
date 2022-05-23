@@ -1,11 +1,14 @@
+import NextLink from "next/link";
 import { Flex } from "@chakra-ui/layout";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Link } from "@chakra-ui/react";
 
 const Home = () => {
   return (
     <Flex height="80%" justify="center" align="center">
       <Heading as="h1" size="3xl">
-        Welcome to Foundation
+        <NextLink href="#" passHref>
+          <Link>Welcome to Foundation</Link>
+        </NextLink>
       </Heading>
     </Flex>
   );

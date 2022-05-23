@@ -36,7 +36,7 @@ const SigninForm = ({ mode }) => {
 
   return (
     <Box
-      width="700px"
+      width="600px"
       border="1px solid black"
       borderRadius="6px"
       paddingY="20px"
