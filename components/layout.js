@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <Box>
       <Navbar />
-      {children}
+      <Box height="calc(100vh - 100px)">{children}</Box>
     </Box>
   );
 };
