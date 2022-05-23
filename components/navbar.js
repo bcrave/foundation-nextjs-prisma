@@ -1,16 +1,10 @@
 import NextLink from "next/link";
 import Image from "next/image";
 import { Box, Flex } from "@chakra-ui/layout";
-import {
-  Link,
-  InputGroup,
-  Input,
-  InputRightElement,
-  Text,
-} from "@chakra-ui/react";
+import { Link, InputGroup, Input, InputRightElement } from "@chakra-ui/react";
 import { MdOutlineSearch } from "react-icons/md";
 
-import DropdownMenu from "./dropdownMenu";
+import DropdownMenu from "./navbarMenu";
 
 const navLinks = [
   {

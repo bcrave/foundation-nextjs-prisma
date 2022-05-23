@@ -1,7 +1,12 @@
-import { Box } from "@chakra-ui/layout";
+import { Link } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 const AllUsers = () => {
-  return <Box>Users</Box>;
+  return (
+    <NextLink href="/addUser" passHref>
+      <Link>Add User</Link>
+    </NextLink>
+  );
 };
 
 export default AllUsers;
