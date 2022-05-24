@@ -4,7 +4,7 @@ import AddUserForm from "../components/forms/addUserForm";
 
 const AddUser = () => {
   return (
-    <Flex height="90%" justify="center" align="center" direction="column">
+    <Flex height="100vh" justify="center" align="center" direction="column">
       <Center width="700px" marginBottom="30px">
         <Text as="h1" fontSize="4xl">
           Add User

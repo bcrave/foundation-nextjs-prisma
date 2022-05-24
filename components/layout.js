@@ -4,8 +4,21 @@ import Navbar from "../components/navbar";
 const Layout = ({ children }) => {
   return (
     <Box>
-      <Navbar />
-      <Box height="calc(100vh - 100px)">{children}</Box>
+      <Box
+        backgroundColor="white"
+        position="fixed"
+        top="0"
+        left="0"
+        right="0"
+        zIndex="1"
+        height="100px"
+        width="100%"
+      >
+        <Navbar />
+      </Box>
+      <Box height="calc(100vh - 100px)" width="80%" margin="auto">
+        {children}
+      </Box>
     </Box>
   );
 };
