@@ -45,6 +45,7 @@ const signup = async (req, res) => {
     {
       email: user.email,
       id: user.id,
+      role: user.role,
       time: Date.now(),
     },
     "foundation",

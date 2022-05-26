@@ -2,9 +2,7 @@ import { NextResponse } from "next/server";
 
 const signedInPages = [
   "/",
-  "/users",
   "/users/all",
-  "/organizations",
   "/organizations/all",
   "/addUser",
   "/addOrganization",

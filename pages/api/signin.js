@@ -15,6 +15,7 @@ const signin = async (req, res) => {
       {
         id: user.id,
         email: user.email,
+        role: user.role,
         time: Date.now(),
       },
       "foundation",
