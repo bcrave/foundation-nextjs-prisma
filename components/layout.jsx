@@ -1,7 +1,9 @@
+import { useMe } from "../lib/hooks";
 import { Box } from "@chakra-ui/layout";
 import Navbar from "./navbar";
 
 const Layout = ({ children }) => {
+  const { user, isLoading } = useMe();
   return (
     <Box>
       <Box
@@ -14,7 +16,7 @@ const Layout = ({ children }) => {
         height="100px"
         width="100%"
       >
-        <Navbar />
+        <Navbar user={user} isLoading={isLoading} />
       </Box>
       <Box height="calc(100vh - 100px)" width="80%" margin="auto">
         {children}

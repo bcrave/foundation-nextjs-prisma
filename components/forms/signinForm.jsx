@@ -68,13 +68,6 @@ const SigninForm = ({ mode }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {/* {!isError ? (
-              <FormHelperText>
-                Enter the email you&apos;d like to receive the newsletter on.
-              </FormHelperText>
-            ) : (
-              <FormErrorMessage>Email is required.</FormErrorMessage>
-            )} */}
           </FormControl>
           <Button
             backgroundColor="lightblue"

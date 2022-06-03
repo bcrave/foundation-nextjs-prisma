@@ -4,11 +4,12 @@ import { Box, Flex } from "@chakra-ui/layout";
 import { InputGroup, Input, Button, Text } from "@chakra-ui/react";
 import { HiUserAdd, HiUsers } from "react-icons/hi";
 
-import { useUsersList } from "../../lib/hooks";
+import { useUsersList, useMe } from "../../lib/hooks";
 import { filterDataByText } from "../../lib/filters";
 import InfoTable from "../../components/infoTable";
 
 const AllUsers = () => {
+  const { user } = useMe();
   const { users } = useUsersList();
   const [usersFilteredByText, setUsersFilteredByText] = useState([]);
 
@@ -18,6 +19,7 @@ const AllUsers = () => {
 
   const handleInputChange = (e) => {
     setUsersFilteredByText(
+      // TODO add "search by full name" functionality
       filterDataByText(
         e.target.value,
         users.map((org) => org)
@@ -36,9 +38,11 @@ const AllUsers = () => {
             />
           </InputGroup>
         </Box>
-        <NextLink href="/addUser">
-          <Button leftIcon={<HiUserAdd />}>Add User</Button>
-        </NextLink>
+        {user?.role !== "USER" && (
+          <NextLink href="/users/addUser">
+            <Button leftIcon={<HiUserAdd />}>Add User</Button>
+          </NextLink>
+        )}
       </Flex>
       <Text as="h2" fontSize="3xl" marginBottom="20px">
         <Flex align="center">

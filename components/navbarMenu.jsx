@@ -1,19 +1,12 @@
 import NextLink from "next/link";
-import {
-  Button,
-  Link,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from "@chakra-ui/react";
+import { Button, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { IoChevronDown } from "react-icons/io5";
 
-const NavbarMenu = () => {
+const NavbarMenu = ({ user }) => {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<IoChevronDown />}>
-        Actions
+        {user ? user.role : "Actions"}
       </MenuButton>
       <MenuList>
         <NextLink href="/me/profile">

@@ -37,7 +37,7 @@ const AllOrganizations = () => {
             />
           </InputGroup>
         </Box>
-        <NextLink href="/addOrganization">
+        <NextLink href="/organizations/addOrganization">
           <Button leftIcon={<HiFolderAdd />}>Add Organization</Button>
         </NextLink>
       </Flex>

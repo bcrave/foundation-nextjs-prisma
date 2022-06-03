@@ -1,6 +1,6 @@
 import { Flex, Center } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/react";
-import AddUserForm from "../components/forms/addUserForm";
+import AddUserForm from "../../components/forms/addUserForm";
 
 const AddUser = () => {
   return (

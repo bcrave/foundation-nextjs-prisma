@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { Flex } from "@chakra-ui/layout";
-import { Heading, Link, Text } from "@chakra-ui/react";
+import { Heading, Link } from "@chakra-ui/react";
 
 const Home = () => {
   return (

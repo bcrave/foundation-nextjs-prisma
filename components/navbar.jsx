@@ -17,9 +17,9 @@ const navLinks = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
-    <Box width="100%" height="100%" borderBottom="1px solid black">
+    <Box width="100%" height="100%" borderBottom="1px solid #dff8fb">
       <Flex margin="auto" justify="space-between" height="100%" width="80%">
         <Flex width="45%" justify="space-between" align="center">
           <NextLink href="/" passHref>
@@ -34,13 +34,21 @@ const Navbar = () => {
               </Flex>
             </Link>
           </NextLink>
-          {navLinks.map((link) => (
-            <Box key={link.name}>
-              <NextLink href={link.route} passHref>
-                <Link fontWeight="bold">{link.name}</Link>
+          {user?.role !== "SUPERADMIN" ? (
+            <Box>
+              <NextLink href="/users/all" passHref>
+                <Link fontWeight="bold">Users</Link>
               </NextLink>
             </Box>
-          ))}
+          ) : (
+            navLinks.map((link) => (
+              <Box key={link.name}>
+                <NextLink href={link.route} passHref>
+                  <Link fontWeight="bold">{link.name}</Link>
+                </NextLink>
+              </Box>
+            ))
+          )}
         </Flex>
         <Flex width="45%" justify="space-between" align="center">
           <InputGroup width="60%">
@@ -49,7 +57,7 @@ const Navbar = () => {
               <MdOutlineSearch />
             </InputRightElement>
           </InputGroup>
-          <DropdownMenu />
+          <DropdownMenu user={user} />
         </Flex>
       </Flex>
     </Box>
