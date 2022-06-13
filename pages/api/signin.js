@@ -1,27 +1,27 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import { generateKeyPair, SignJWT } from "jose";
 import cookie from "cookie";
 import prisma from "../../lib/prisma";
+// import { privateKey } from "../../lib/jwtKeyPair";
+
+export const { privateKey, publicKey } = await generateKeyPair("PS256");
 
 const signin = async (req, res) => {
   const { email, password } = req.body;
-
   const user = await prisma.user.findUnique({
     where: { email },
   });
 
   if (user && bcrypt.compareSync(password, user.password)) {
-    const token = jwt.sign(
-      {
-        id: user.id,
-        email: user.email,
-        time: Date.now(),
-      },
-      "foundation",
-      {
-        expiresIn: "8h",
-      }
-    );
+    const token = await new SignJWT({
+      id: user.id,
+      email: user.email,
+      role: user.role,
+    })
+      .setProtectedHeader({ alg: "PS256" })
+      .setIssuedAt()
+      .setExpirationTime("8h")
+      .sign(privateKey);
 
     res.setHeader(
       "Set-Cookie",
